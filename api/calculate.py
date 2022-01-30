@@ -22,7 +22,7 @@ class Bmi:
             # Example:
                 >>> b = Bmi(3, 8, 60, 'female')
                 >>> b.calculate()
-                {}
+                {'bmi': 22.2, 'weight': 'obese'}
         '''
         self.age = age
         self.weight = weight

@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  bmiwebsite:
+    build: .
+    volumes:
+      - .:/app
+      - bmiwebsite_static_files:/app/staticfiles
+    networks:
+      - bmiwebiste_network
+    ports:
+      - "8000:8000"
+  
+  bmiwebsite_nginx:
+    build: nginx/
+    volumes:
+      - bmiwebsite_static_files:/app/staticfiles
+    ports:
+      - "80:80"
+    networks:
+      - bmiwebsite_network
+    depends_on:
+      - bmiwebsite
+
+volumes:
+  bmiwebsite_static_files:
+    external: true
+
+networks:
+  bmiwebsite_network:
+    external: true

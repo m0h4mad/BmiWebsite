@@ -1,0 +1,121 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block title %}صفحه اصلی{% endblock title %}
+
+{% block main %}
+<div class="container pt-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-6">
+        <form action="{% url 'bmi-api' %}" method="post" class="shadow-sm p-5 rounded" id="bmiForm">
+          <div class="form-floating mb-3">
+            <input type="number" name="height" id="heightInput" class="form-control" min="1" max="300" placeholder="." required>
+            <label for="heightInput">قد (سانتی متر)</label>
+          </div>
+          <div class="form-floating mb-3">            
+              <input type="number" name="weight" id="weightInput" class="form-control" min="1" max="300" placeholder="." required>
+              <label for="weightInput">وزن (کیلو گرم)</label>
+          </div>
+          <div class="form-floating mb-3">
+              <select name="gender" id="genderInput" class="form-select" required>
+                <option value="male">مرد</option>
+                <option value="female">زن</option>
+              </select>
+              <label for="genderInput">جنسیت</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="number" name="year" id="yearInput" min="1330" max="1397" placeholder="سال تولد" class="form-control" required>
+            <label for="yearInput">سال تولد</label>
+          </div>
+          <div class="form-floating mb-3">
+            <select name="month" id="monthInput" class="form-select" required>
+              <option value="1">فروردین</option>
+              <option value="2">اریبهشت</option>
+              <option value="3">خرداد</option>
+              <option value="4">تیر</option>
+              <option value="5">مرداد</option>
+              <option value="6">شهریور</option>
+              <option value="7">مهر</option>
+              <option value="8">آبان</option>
+              <option value="9">آذر</option>
+              <option value="10">دی </option>
+              <option value="11">بهمن</option>
+              <option value="12">اسفند</option>
+            </select>
+            <label for="monthInput">ماه تولد</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="number" name="day" id="dayInput" min="1" max="31" placeholder="روز تولد" class="form-control" required>
+            <label for="dayInput">روز تولد</label>
+          </div>
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-outline-primary btn-lg mx-auto" id="submitBtn">تایید</button>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="bmiModal" tabindex="-1" aria-labelledby="bmiModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bmiModalTitle"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p id="bmiModalBody"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">بستن</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container py-5 my-5">
+  <h2 class="display-4 py-5">شاخص توده بدنی یا BMI چیست؟</h2>
+  <p class="lead text-muted pb-5">
+    (Body Mass Index = BMI)  نشان دهنده میزان چربی بدن است. افراد با دانستن بی ام آی بدنشان می توانند ذهنیتی نسبی از وضعیت جسمی شان بدست آوردند و در صورت نیاز به درمان و حفظ سلامتی تصمیم بگیرند.
+
+    شاخص حجم بدن (BMI) فرمولی است که توسط آماردان بلژیکی ساخته و توسط آدولف کتلت توسعه یافت. BMI در واقع مرجعی برای نشان دادن میزان حجم بدن می باشد و دقیق ترین معیار جهانی چاقی است. با استفاده از این مقیاس می توانید متوجه شوید که آیا دچار کمبود وزن هستید، اضافه وزن دارید و یا اینکه طبیعی هستید.
+  </p>
+  <h2 class="display-4 py-5">محاسبه BMI</h2>
+  <p class="lead text-muted pb-5">
+    محاسبه شاخص توده بدنی٬ با استفاده از یک فرمول ریاضی است و براورد میکند که در هر متر مربع از بدن چقدر وزن موجود است که در اینجا منظور از وزن٬‌ چربی است و نه ماهیچه و …
+  </p>
+  <h2 class="display-4 py-5">فرمول محاسبه BMI</h2>
+  <p class="lead text-muted pb-5">
+    BMI = mass (kg) / height^2 (m)<br>
+    <img src="{% static 'images/bmi-b.jpg' %}" alt="فرمول محاسبه شاخص توده بدنی" class="img-fluid rounded float-end pb-5">
+    BMI = شاخص توده بدنی<br>
+    Mass = وزن بر حسب کیلوگر<br>
+    Height = قد بر حسب متر<br><br>
+
+    به عبارتی:<br>
+    شاخص توده بدنی = وزن (بر حسب کیلوگرم) تقسیم بر قد (بر حسب متر) به توان ۲
+  </p>
+  <h2 class="display-4 py-5">BMI چه چیزی را به ما نشان می دهد؟</h2>
+  <p class="lead text-muted pb-5">
+    همانطور که پیشتر اشاره کردیم٬ bmi نشان دهنده میزان چربی بدن است. افراد با دانستن بی ام آی بدنشان میتوانند ذهنیتی نسبی از وضعیت جسمی شان بدست آوردند و در صورت نیاز به درمان و حفظ سلامتی تصمیم بگیرند.<br><br>
+    ۱- چنانچه BMI زیر ۱۸/۵ باشد٬ فرد باید با مراجعه به پزشک در مورد پایین بودن وزن خود صحبت کند و در صورتی که مشکل خاصی وجود ندارد به کمک یک متخصص تغذیه وزن خود را تا حد بازه ایده آل افزایش دهد.<br><br>
+۲- چنانچه BMI فرد در محدوده ایده آل یعنی عددی بین ۱۸/۵ تا ۲۴/۹ باشد٬ نه تنها جای نگرانی نیست بلکه نقطه ایده آل همینجاست. این فرد میتواند با حفظ رژیم غذایی و سبک زندگی سالم و ورزش٬ وزن خود را در این محدوده حفظ کند و سلامتی نسبی خود را داشته باشد.<br><br>
+۳- چنانچه BMI بین ۲۵ تا ۲۹/۹ باشد٬ باید به پزشک متخصص مراجعه کرده و در مورد اضافه وزن خود٬‌ درمانی را به شکل دارویی٬ رژیم و … آغاز کند.<br>
+در این محدوده٬ فرد میتواند با رعایت مواردی که پزشک توصیه میکند٬ وزن خود را خیلی راحت تر از دو مرحله بعدی کاهش دهد بدون اینکه نیاز به جراحی لاغری داشته باشد.<br><br>
+۴- چنانچه BMI فرد بین ۳۰ و ۳۴.۹ باشد٬ این فرد٬ چاق محسوب میشود و باید به پزشک مراجعه کرده و درمان خود را به شیوه ای که پزشک تجویز میکند شروع کند.<br>
+از این محدوده BMI به بعد٬ نگرانی ها از بابت به خطر افتادن سلامتی شروع میشود و جای بررسی دارد.<br><br>
+۵- چنانچه BMI فرد بالای ۳۵ باشد٬ این فرد دچار چاقی مفرط است و در مرحله خطرناک قرار دارد. این فرد احتمالا کسی است که با کمک رژیم٬ دارو و ورزش پیش از این نتوانسته است وزن خود را کاهش دهد. معمولا درمان این بیماران به شکل جراحی های لاغری است.<br>
+علت اینکه در BMI ی بالا٬ فرد در مرحله خطرناک است این است که در این محدوده٬ بیمار علاوه بر مشکلات عدیده (روحی٬ محدودیت جسمی و …) که چاقی برایش ایجاد کرده است٬ به شدت نیز در معرض ابتلا به بیماری های چون موارد زیر قرار میگیرد:<br><br>
+  </p>
+  <h2 class="display-4 py-5">آیا BMI برای همه قابل استفاده است؟</h2>
+  <p class="lead text-muted pb-5">
+    برای اکثر افراد٬ بی ام آی یک شاخص مناسب اندازه گیری چاقی است اما کامل و بی نقص نیست زیرا بی ام آی نمیتواند اطلاعات واقعی از ترکیب بدن مانند میزان عضله٬ استخوان٬ چربی و سایر بافت ها ارائه دهد. بعبارتی BMI نمیتواند بین ماهیچه و چربی تفاوت قائل شود.
+  </p>
+  <h2 class="display-6 py-3">افراد ورزشکار</h2>
+  <p class="lead text-muted pb-3">بی ام آی یک فرد ورزشکار٬ ممکن است در بازه شخص دارای اضافه وزن قرار بگیرد در حالیکه این افراد کاملا فیت و ایده آل هستند. یعنی با وجود چربی کم و تیپی عضلانی٬ با کسی که اضافه وزن دارد در یک بازه قرار بگیرند</p>
+  <h2 class="display-6 py-3">افراد مسن</h2>
+  <p class="lead text-muted pb-3">افراد مسن٬ کمتر عضلانی هستند و بیشتر چربی دارند و با این حال ممکن است که در بازه وزن طبیعی قرار بگیرند.</p>
+  <h2 class="display-6 py-3">زنان باردار</h2>
+  <p class="lead text-muted pb-3">در زنان باردار بی ام آی شاخص دقیق نیست زیرا طبق فرمول٬ قد این افراد ثابت است اما وزن آنها در حالت بارداری بیشتر است. در نتیجه فرمول٬ بی ام آی بالاتری را نشان میدهد که سنجش درستی نیست.</p>
+</div>
+{% endblock main %}

@@ -10,14 +10,16 @@ const OBESE = "obese";
 submitButton.onclick = function (e) {
     e.preventDefault();
     let url = document.getElementById("bmiForm").action;
-    let weight = document.getElementById("weightInput").value;
-    let height = document.getElementById("heightInput").value;
-    let gender = document.getElementById("genderInput").value;
-    let year = document.getElementById("yearInput").value;
-    let month = document.getElementById("monthInput").value;
-    let day = document.getElementById("dayInput").value;
-
-    var query = `?weight=${weight}&height=${height}&gender=${gender}&year=${year}&month=${month}&day=${day}`
+    let data = {
+        weight: document.getElementById("weightInput").value,
+        height: document.getElementById("heightInput").value,
+        gender: document.getElementById("genderInput").value,
+        year: document.getElementById("yearInput").value,
+        month: document.getElementById("monthInput").value,
+        day: document.getElementById("dayInput").value,
+    };
+    
+    var query = `?weight=${data.weight}&height=${data.height}&gender=${data.gender}&year=${data.year}&month=${data.month}&day=${data.day}`
     var endpoint = url + query;
     var xml = new XMLHttpRequest();
 
@@ -37,22 +39,22 @@ function showModal(data) {
 
     switch (data.weight) {
         case OBESE:
-            modalTitle.classList.add("text-danger");
+            coloringModalTitle(modalTitle, "text-danger");
             modalTitle.innerHTML = "شما چاق هستید";
             break;
         
         case OVERWEIGHT:
-            modalTitle.classList.add("text-warning");
+            coloringModalTitle(modalTitle, "text-warning");
             modalTitle.innerHTML = "شما اضافه وزن دارید";
             break;
         
         case NORMALWEIGHT:
-            modalTitle.classList.add("text-success");
+            coloringModalTitle(modalTitle, "text-success");
             modalTitle.innerHTML = "شما وزن نرمال دارید";
             break;
         
         case UNDERWEIGHT:
-            modalTitle.classList.add("text-warning");
+            coloringModalTitle(modalTitle, "text-warning");
             modalTitle.innerHTML = "شما کمبود وزن دارید";
             break;
     }
@@ -76,4 +78,12 @@ function showModal(data) {
     modalBody.innerHTML = `این تست برای ${subject}ی ${data.age} ساله گرفته شده است<br>شاخص توده بدنی: ${data.bmi}`;
 
     bmiModal.show();
+}
+
+function coloringModalTitle(element, colorClass) {
+    if (element.classList.length > 1) {
+        element.classList.remove(element.classList[1]);
+    }
+
+    element.classList.add(colorClass);
 }

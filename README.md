@@ -111,8 +111,13 @@
    ```sh
    git clone https://github.com/m0h4mad/BmiWebsite.git
    ```
-2. تغییرات خود را در کانفیگ پروژه اعمال کنید
-3. و در نهایت با داکر کامپوز پروژه را بالا بیاورید
+2. تغییرات خود را در کانفیگ پروژه اعمال کنید (نظیر لود بالانسر و ...)
+3. نتورک و والیوم های داکر اکسترنال مورد نیاز را بسازید تا کانتینر ها بتوانند با هم ارتباط برقرار کنند
+  ```sh
+  docker volume create bmiwebsite_static_files
+  docker network create bmiwebsite_network
+  ```
+4. و در نهایت با داکر کامپوز پروژه را بالا بیاورید
   ```sh
   docker-compose up
   ```

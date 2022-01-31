@@ -24,12 +24,14 @@ class Bmi:
                 >>> b.calculate()
                 {'bmi': 22.2, 'weight': 'obese'}
         '''
+
         self.age = age
         self.weight = weight
         self.height = height / 100
         self.gender = gender
         self.bmi = self.weight / (self.height ** 2)
     
+    # Boys 2 to 5 years old
     def b2_5(self):
         if self.bmi < 14:
             return UNDERWEIGHT
@@ -43,6 +45,7 @@ class Bmi:
         else:
             return OBESE
     
+    # Girls 2 to 5 years old
     def g2_5(self):
         if self.bmi < 14:
             return UNDERWEIGHT
@@ -108,7 +111,7 @@ class Bmi:
         else:
             return OBESE
     
-    def adult(self):
+    def cal_adult(self):
         if self.bmi < 18.5:
             return UNDERWEIGHT
         
@@ -149,7 +152,7 @@ class Bmi:
             result.update({'weight': self.cal_kid()})
         
         else:
-            result.update({'weight': self.adult()})
+            result.update({'weight': self.cal_adult()})
         
         return result
 

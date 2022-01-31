@@ -26,21 +26,18 @@ class CalculateBmiAPIView(APIView):
         {'bmi': float, 'weight': 'string', 'age': integer}
     
     '''
+    
     def get(self, request, formate=None):
         try:
             serializer = BmiInputSerializer(data=request.GET)
 
             if serializer.is_valid():
                 data = serializer.data
-                weight = data.get('weight')
-                height = data.get('height')
-                gender = data.get('gender')
-                year = data.get('year')
-                month = data.get('month')
-                day = data.get('day')
 
-                age = calculate_age(year, month, day)
-                b = Bmi(age, weight, height, gender)
+                age = calculate_age(
+                    data.get('year'), data.get('month'), data.get('day'))
+                
+                b = Bmi(age, data.get('weight'), data.get('height'), data.get('gender'))
                 result = b.calculate()
                 result.update({'age': age})
 

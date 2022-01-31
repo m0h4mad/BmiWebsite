@@ -7,7 +7,7 @@ services:
       - .:/app
       - bmiwebsite_static_files:/app/staticfiles
     networks:
-      - bmiwebiste_network
+      - bmiwebsite_network
     ports:
       - "8000:8000"
   

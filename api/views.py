@@ -13,12 +13,14 @@ class CalculateBmiAPIView(APIView):
     You can use this APIView to calculate your BMI (Body Mass Index)
     
     Inputs (Json) :
-        - weight (`integer`) : The weight as kilogram
-        - height (`integer`) : The height as centimeter
-        - gender (`string`) : The gender ('female' or 'male')
-        - year (`integer`) : The birth year (jalali date)
-        - month (`integer`) : The birth month (jalali date)
-        - day (`integer`) : The birth day (jalali date)
+        {
+            'weight': (integer as kilogram),
+            'height': (integer as centimeter),
+            'gender': ('male' or 'female'),
+            'year': (integer jalali year),
+            'month': (integer jalali month),
+            'day': (integer jalali day)
+        }
     
     Output (Json) :
         {'bmi': float, 'weight': 'string', 'age': integer}

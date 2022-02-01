@@ -195,4 +195,4 @@
 [issues-shield]: https://img.shields.io/github/issues/m0h4mad/BmiWebsite.svg?style=for-the-badge
 [issues-url]: https://github.com/m0h4mad/BmiWebsite/issues
 [license-shield]: https://img.shields.io/github/license/m0h4mad/BmiWebsite.svg?style=for-the-badge
-[license-url]: https://github.com/m0h4mad/BmiWebsite/blob/master/LICENSE.txt
+[license-url]: https://github.com/m0h4mad/BmiWebsite/blob/master/LICENSE

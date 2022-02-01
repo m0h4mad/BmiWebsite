@@ -40,8 +40,8 @@
 
 
 <!-- TABLE OF CONTENTS -->
-<details>
-  <summary>جدول محتویات</summary>
+<details align="right">
+  <summary>فهرست مطالب</summary>
   <ol>
     <li>
       <a href="#درباره-پروژه">درباره پروژه</a>

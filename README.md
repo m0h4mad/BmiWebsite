@@ -74,7 +74,7 @@
 <p align="right">
 این یک پروژه سایت محاسباتی سلامتی بدن برای جشنواره خوارزمی است که از طرف دبیرستان امیران شهر محمدیه استان قزوین و توسط محمدرضا گنج خانی و علیرضا بیدلی ساخته شده است
 </p>
-<p align="right">(<a href="#top">برگشت به بالای صفحه</a>)</p>
+<p align="left">(<a href="#top">برگشت به بالای صفحه</a>)</p>
 
 
 
@@ -88,7 +88,7 @@
 * [Nginx](https://nginx.com)
 * [Git](https://git-scm.comd)
 
-<p align="right">(<a href="#top">برگشت به بالای صفحه</a>)</p>
+<p align="left">(<a href="#top">برگشت به بالای صفحه</a>)</p>
 
 
 
@@ -122,7 +122,7 @@
   docker-compose up
   ```
 
-<p align="right">(<a href="#top">برگشت به بالای صفحه</a>)</p>
+<p align="left">(<a href="#top">برگشت به بالای صفحه</a>)</p>
 
 
 
@@ -133,7 +133,7 @@
 پس از اجرای پروژه به دامین یا لوکال هاست سیستم خود سر بزنید و از سایت استفاده کنید
 </p>
 
-<p align="right">(<a href="#top">برگشت به بالای صفحه</a>)</p>
+<p align="left">(<a href="#top">برگشت به بالای صفحه</a>)</p>
 
 
 
@@ -150,7 +150,7 @@
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#top">برگشت به بالای صفحه</a>)</p>
+<p align="left">(<a href="#top">برگشت به بالای صفحه</a>)</p>
 
 
 
@@ -161,7 +161,7 @@
 برای اطلاعات بیشتر<br>
 فایل `LICENSE` را چک کنید
 </p>
-<p align="right">(<a href="#top">برگشت به بالای صفحه</a>)</p>
+<p align="left">(<a href="#top">برگشت به بالای صفحه</a>)</p>
 
 
 
@@ -180,7 +180,7 @@
 * [Github](https://github.com)
 * [Othneildrew](https://github.com/othneildrew/Best-README-Template)
 
-<p align="right">(<a href="#top">برگشت به بالای صفحه</a>)</p>
+<p align="left">(<a href="#top">برگشت به بالای صفحه</a>)</p>
 
 
 

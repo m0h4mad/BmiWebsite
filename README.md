@@ -31,9 +31,9 @@
     یک سایت فارسی برای محاسبات شاخص توده بدنی
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">گزارش باگ</a>
+    <a href="https://github.com/m0h4mad/BmiWebsite/issues">گزارش باگ</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">درخواست قابلیت</a>
+    <a href="https://github.com/m0h4mad/BmiWebsite/issues">درخواست قابلیت</a>
   </p>
 </div>
 

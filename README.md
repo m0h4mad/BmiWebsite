@@ -162,26 +162,6 @@
 <p align="left">(<a href="#top">برگشت به بالای صفحه</a>)</p>
 
 
-
-<!-- SUPPORT -->
-## حمایت
-
-<p align="right">
-ممنون میشم اگه خوشتون اومد یه ستاره به این پروژه بدید تا انرژی بگیرم
-</p>
-
-
-<!-- ACKNOWLEDGMENTS -->
-## تشکر ویژه
-
-* [Storyset](https://storyset.com)
-* [Github](https://github.com)
-* [Othneildrew](https://github.com/othneildrew/Best-README-Template)
-
-<p align="left">(<a href="#top">برگشت به بالای صفحه</a>)</p>
-
-
-
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/m0h4mad/BmiWebsite.svg?style=for-the-badge
